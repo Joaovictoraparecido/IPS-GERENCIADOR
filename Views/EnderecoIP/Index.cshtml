@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ips.Models.EnderecoIP>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gereciamento De IPS </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-sm">Small button</button>>CRIAR NOVO</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfiguracaoDoPC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Setor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bloco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConfiguracaoDoPC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bloco)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
